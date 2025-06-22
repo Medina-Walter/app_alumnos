@@ -1,6 +1,4 @@
 <div class="p-6 max-w-4xl mx-auto relative">
-
-    
     <div class="absolute top-4 right-4 z-10">
         <button wire:click="logout"
             class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition duration-200">

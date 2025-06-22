@@ -17,6 +17,7 @@ Route::get('/login', Login::class)->name('login');
 Route::get('/', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 
+
 // Ruta protegida
 Route::middleware(['auth'])->group(function () {
     Route::get('/clientes', Clientes::class)->name('clientes');
