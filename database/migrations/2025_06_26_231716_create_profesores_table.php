@@ -8,20 +8,17 @@ return new class extends Migration {
     /**
      * Run the migrations.
      */
-    public function up()
-    {
-        Schema::create('profesores', function (Blueprint $table) {
-            $table->id('id_profesor');
-            $table->string('nombre', 30);
-            $table->string('apellido', 30);
-            $table->string('dni', 10)->unique();
-            $table->date('fecha_nac');
-            $table->string('especialidad', 30);
-            $table->string('email', 20);
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->timestamps();
-        });
-    }
+public function up()
+{
+    Schema::create('profesores', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+        $table->string('dni', 10)->unique();
+        $table->string('especialidad', 30);
+        $table->timestamps();
+    });
+}
+
 
 
     /**

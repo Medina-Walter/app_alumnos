@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('notas', function (Blueprint $table) {
-            $table->id('id_nota');
-            $table->foreignId('id_alumno')->constrained('alumnos')->onDelete('cascade');
-            $table->foreignId('id_taller')->constrained('talleres')->onDelete('cascade');
+            $table->id();
+            $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');
+            $table->foreignId('taller_id')->constrained('talleres')->onDelete('cascade');
             $table->decimal('nota', 3, 2);
             $table->text('comentario');
             $table->timestamps();

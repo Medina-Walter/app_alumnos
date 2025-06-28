@@ -11,10 +11,9 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('inscripciones', function (Blueprint $table) {
-            $table->id('id_inscripcion');
-            $table->foreignId('id_alumno')->constrained('alumnos')->onDelete('cascade');
-            $table->foreignId('id_taller')->constrained('talleres')->onDelete('cascade');
-            $table->date('fecha_inscripcion');
+            $table->id();
+            $table->foreignId('alumno_id')->constrained('alumnos')->onDelete('cascade');
+            $table->foreignId('taller_id')->constrained('talleres')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -12,11 +12,11 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('talleres', function (Blueprint $table) {
-            $table->id('id_taller');
+            $table->id();
             $table->string('nombre', 30);
-            $$table->string(column: 'descripcion', 100);
+            $table->string('descripcion', 100);
             $table->integer('cupo_maximo');
-            $table->foreignId('id_profesor')->constrained('profesores')->onDelete('cascade');
+            $table->foreignId('profesor_id')->constrained('profesores')->onDelete('cascade');
             $table->timestamps();
         });
     }
