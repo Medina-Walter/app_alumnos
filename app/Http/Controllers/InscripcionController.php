@@ -9,10 +9,6 @@ use App\Models\Taller;
 use App\Models\Inscripcion;
 
 
-
-
-
-
 class InscripcionController extends Controller
 {
     public function store(Request $request, $tallerId)
