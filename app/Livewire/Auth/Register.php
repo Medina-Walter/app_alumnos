@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Auth;
 
+use App\Models\Alumno;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -9,28 +10,41 @@ use Illuminate\Support\Facades\Auth;
 
 class Register extends Component
 {
-    public $name = '';
+    public $nombre = '';
+    public $apellido = '';
+    public $dni = '';
     public $email = '';
     public $password = '';
     public $password_confirmation = '';
+    
 
     public function register()
     {
         $this->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|same:password_confirmation',
+            'nombre' => 'required|string|max:255',
+            'apellido' => 'required|string|max:255',
+            'dni' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
+            'password_confirmation' => 'required|string|min:6',
         ]);
 
         $user = User::create([
-            'name' => $this->name,
+            'nombre' => $this->nombre,
+            'apellido' => $this->apellido,
             'email' => $this->email,
             'password' => Hash::make($this->password),
+            'rol' => 'alumno',
+        ]);
+
+        Alumno::create([
+            'user_id' => $user->id,
+            'dni' => $this->dni,
         ]);
 
         Auth::login($user);
 
-        return redirect()->route('clientes');
+        return redirect()->route('login');
     }
 
     public function render()

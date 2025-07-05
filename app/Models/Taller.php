@@ -7,9 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Taller extends Model
 {
+    use HasFactory;
+
     protected $table = 'talleres';
 
-    protected $fillable = ['nombre', 'descripcion', 'cupo_maximo', 'profesor_id'];
+    protected $fillable = [
+        'nombre',
+        'descripcion',
+        'cupo_maximo',
+        'profesor_id',
+    ];
 
     public function profesor()
     {
@@ -23,18 +30,11 @@ class Taller extends Model
 
     public function alumnos()
     {
-        return $this->belongsToMany(Alumno::class, 'inscripciones');
+        return $this->belongsToMany(Alumno::class, 'inscripciones', 'taller_id', 'alumno_id');
     }
-}
-    use HasFactory;
 
-    protected $table = 'talleres';
-
-    protected $fillable = [
-        'nombre',
-        'descripcion',
-        'dia',
-        'horario',
-        'cupos',
-    ];
+    public function horarios()
+    {
+        return $this->hasMany(Horario::class, 'taller_id');
+    }
 }

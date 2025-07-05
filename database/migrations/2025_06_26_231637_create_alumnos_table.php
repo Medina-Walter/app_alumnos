@@ -11,9 +11,9 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('alumnos', function (Blueprint $table) {
-            $table->id(); 
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->id();
             $table->string('dni', 10)->unique();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

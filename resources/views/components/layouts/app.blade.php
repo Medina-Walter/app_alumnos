@@ -28,6 +28,7 @@
             <!-- Enlaces de navegación -->
             <div class="hidden peer-checked:flex md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 absolute md:static top-16 right-0 w-full md:w-auto bg-blue-500 md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out">
                 <a href="#" class="text-white hover:text-gray-300 text-right">Inicio</a>
+                <a href="{{ route("mis_talleres") }}" class="text-white hover:text-gray-300 text-right">Mis Talleres</a>
                 
                 <!-- Opción Perfiles con desplegable -->
                 <div class="relative group">
@@ -52,7 +53,7 @@
         </div>
     </nav>
 
-    <main class="container mx-auto mt-8 p-4">
+    <main>
         @yield('contenido')
     </main>
     @livewireScripts

@@ -9,7 +9,8 @@ class TallerController extends Controller
 {
     public function index()
     {
-        $talleres = Taller::all();
+        // Carga los talleres con sus horarios y el profesor (y su usuario)
+        $talleres = Taller::with(['profesor.user', 'horarios'])->get();
         return view('talleres.index', compact('talleres'));
     }
 }

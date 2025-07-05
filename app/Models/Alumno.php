@@ -8,11 +8,11 @@ class Alumno extends Model
 {
     protected $table = 'alumnos';
 
-    protected $fillable = ['user_id', 'nombre', 'apellido', 'dni'];
+    protected $fillable = ['user_id', 'dni'];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function inscripciones()
@@ -22,6 +22,6 @@ class Alumno extends Model
 
     public function talleres()
     {
-        return $this->belongsToMany(Taller::class, 'inscripciones');
+        return $this->belongsToMany(Taller::class, 'inscripciones', 'alumno_id', 'taller_id');
     }
 }
