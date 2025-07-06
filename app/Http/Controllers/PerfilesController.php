@@ -15,5 +15,9 @@ class PerfilesController extends Controller
     {
         return view('perfiles.camila_ozuna');
     }
-}
 
+    public function perfilJose()
+    {
+        return view('perfiles.jose_sosa');
+    }
+}
