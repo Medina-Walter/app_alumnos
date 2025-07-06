@@ -46,6 +46,7 @@
                     <!-- Submenú desplegable -->
                     <div class="hidden peer-checked/profile:flex md:group-hover:flex flex-col space-y-2 mt-2 md:absolute md:top-full md:right-0 md:bg-blue-500 md:p-2 md:rounded-md md:min-w-[150px] transition-all duration-200 ease-in-out">
                         <a href="{{ route("medina_walter"); }}" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">Walter Medina</a>
+                        <a href="{{ route('camila_ozuna') }}" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">Camila Ozuna</a>
                         <a href="#" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">Cerrar Sesión</a>
                     </div>
                 </div>
