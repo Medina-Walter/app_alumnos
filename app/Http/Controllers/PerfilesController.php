@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 
 class PerfilesController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('perfiles.medina_walter');
     }
+
+    public function perfilCamila()
+    {
+        return view('perfiles.camila_ozuna');
+    }
 }
+
