@@ -49,9 +49,17 @@
                         <a href="{{ route('medina_walter') }}" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">Walter Medina</a>
                         <a href="{{ route('camila_ozuna') }}" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">Camila Ozuna</a>
                         <a href="{{ route('jose_sosa') }}" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">José Sosa</a>
-                        <a href="#" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1">Cerrar Sesión</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                          @csrf
+                          <button type="submit" class="text-white hover:text-gray-300 text-right md:text-left px-2 py-1 w-full text-left">
+                          Cerrar Sesión
+                          </button>
+                        </form>
                     </div>
                 </div>
+
+                
+
             </div>
         </div>
     </nav>

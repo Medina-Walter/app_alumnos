@@ -10,6 +10,15 @@ use App\Livewire\Producto\FormularioProductos;
 use App\Http\Controllers\TallerController;
 use App\Http\Controllers\InscripcionController;
 use App\Http\Controllers\MisTalleresController;
+use Illuminate\Support\Facades\Auth;
+
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return redirect('/login');
+})->name('logout');
+
 
 Route::get('/login', Login::class)->name('login');
 Route::get('/', Login::class)->name('login');
@@ -18,13 +27,8 @@ Route::get('/register', Register::class)->name('register');
 Route::middleware(['auth'])->group(function () {
     Route::get('/mis_talleres', [MisTalleresController::class, 'index'])->name('mis_talleres');
 
-    Route::get('/profesores', function () {
-        return view('profesores');
-    })->name('profesores.index');
-
-    Route::get('/alumnos', function () {
-        return view('alumnos');
-    })->name('alumnos');
+    Route::get('/profesores', function () {return view('profesores');})->name('profesores.index');
+    Route::get('/alumnos', function () {return view('alumnos');})->name('alumnos');
 
     Route::get('/clientes', Clientes::class)->name('clientes');
     Route::get('/productos', FormularioProductos::class)->name('productos');
