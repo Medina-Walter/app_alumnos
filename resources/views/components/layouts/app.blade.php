@@ -27,7 +27,8 @@
 
             <!-- Enlaces de navegación -->
             <div class="hidden peer-checked:flex md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 absolute md:static top-16 right-0 w-full md:w-auto bg-blue-500 md:bg-transparent p-4 md:p-0 transition-all duration-300 ease-in-out">
-                <a href="#" class="text-white hover:text-gray-300 text-right">Inicio</a>
+                <a href="{{ route("talleres.index"); }}" class="text-white hover:text-gray-300 text-right">Inicio</a>
+                <a href="#" class="text-white hover:text-gray-300 text-right">Mi Perfil</a>
                 <a href="{{ route("mis_talleres") }}" class="text-white hover:text-gray-300 text-right">Mis Talleres</a>
                 
                 <!-- Opción Perfiles con desplegable -->
@@ -37,7 +38,7 @@
 
                     <!-- Label para Perfiles -->
                     <label for="profile-toggle" class="flex items-center justify-end text-white hover:text-gray-300 cursor-pointer text-right md:cursor-default">
-                        Perfiles
+                        Desarrolladores
                         <svg class="w-4 h-4 ml-2 md:hidden peer-checked/profile:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>

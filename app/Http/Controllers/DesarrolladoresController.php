@@ -4,16 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PerfilesController extends Controller
+class DesarrolladoresController extends Controller
 {
     public function index()
     {
-        return view('perfiles.medina_walter');
+        return view('desarrolladores.medina_walter');
     }
 
     public function perfilCamila()
     {
-        return view('perfiles.camila_ozuna');
+        return view('desarrolladores.camila_ozuna');
     }
 }
 

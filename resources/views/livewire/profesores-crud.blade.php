@@ -6,7 +6,7 @@
         </div>
     @endif
 
-    <h2 class="text-2xl font-bold mb-4">Gestión de inofrmación</h2>
+    <h2 class="text-2xl font-bold mb-4">Gestión de inoformación</h2>
 
     <table class="w-full table-auto bg-white shadow rounded-lg">
         <thead class="bg-gray-100 text-gray-700">
@@ -62,9 +62,8 @@
                             </button>
                         @endif
 
-                        <button wire:click="eliminar({{ $profesor->id }})"
-                                class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
-                                onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                        <button wire:click="eliminar({{ $profesor->id }})" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+                                onclick="return confirm('¿Estás seguro de eliminar tu usuario?')">
                             Eliminar usuario
                         </button>
                     </td>
