@@ -23,6 +23,6 @@ class DesarrolladoresController extends Controller
 
     public function perfilLucas()
     {
-        return view('desarrolladores.Oviedo_Lucas');
+        return view('desarrolladores.Oviedo_lucas');
     }
 }

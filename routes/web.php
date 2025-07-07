@@ -38,6 +38,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/medina_walter', [DesarrolladoresController::class, 'index'])->name('medina_walter');
     Route::get('/camila_ozuna', [DesarrolladoresController::class, 'perfilCamila'])->name('camila_ozuna');
     Route::get('/jose_sosa', [DesarrolladoresController::class, 'perfilJose'])->name('jose_sosa');
-    Route::get('/oviedo_lucas', [DesarrolladoresController::class, 'perfilOviedo_Lucas'])->name('oviedo_lucas');
+    Route::get('/oviedo_lucas', [DesarrolladoresController::class, 'perfilLucas'])->name('oviedo_lucas');
     Route::get('/talleres', [TallerController::class, 'index'])->name('talleres.index');
 });
