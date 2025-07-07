@@ -6,23 +6,11 @@
         </div>
     @endif
 
-
-    <h2 class="text-2xl font-bold mb-4">Gestión de inoformación</h2>
-
     <h2 class="text-2xl font-bold text-center">Gestión de Profesores</h2>
-
 
     @foreach ($profesores as $profesor)
         <div class="bg-white shadow rounded-xl p-6 space-y-4">
-                        <button wire:click="eliminar({{ $profesor->id }})" class="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
-                                onclick="return confirm('¿Estás seguro de eliminar tu usuario?')">
-                            Eliminar usuario
-                        </button>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+
             <div>
                 <label class="block font-semibold mb-1">Nombre:</label>
                 <input type="text"
