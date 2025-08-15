@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
-#[Layout('components.layouts.guest')]
+#[Layout('layouts.guest')]
 class Login extends Component
 {
     public $email = '';
@@ -17,7 +17,7 @@ class Login extends Component
         $credentials = $this->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('talleres.index');
+            return redirect()->route('dashboard.index');
         }
 
         $this->addError('email', 'Credenciales inválidas.');

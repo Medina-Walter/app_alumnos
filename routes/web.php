@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\ProfesoresCrud;
 use App\Livewire\Auth\Login;
 use App\Livewire\Auth\Register;
-use App\Livewire\Clientes;
-use App\Livewire\Producto\FormularioProductos;
-use App\Http\Controllers\TallerController;
-use App\Http\Controllers\InscripcionController;
-use App\Http\Controllers\MisTalleresController;
 use Illuminate\Support\Facades\Auth;
 
 Route::post('/logout', function () {
@@ -25,5 +20,12 @@ Route::get('/login', Login::class)->name('login');
 Route::get('/', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
 
-Route::get('/home', [DashboardController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/home', [DashboardController::class, 'index'])->name('home');
+    
+});
+
+
+
 

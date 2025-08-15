@@ -37,11 +37,6 @@ class Register extends Component
             'rol' => 'alumno',
         ]);
 
-        Alumno::create([
-            'user_id' => $user->id,
-            'dni' => $this->dni,
-        ]);
-
         Auth::login($user);
 
         return redirect()->route('login');
@@ -49,6 +44,6 @@ class Register extends Component
 
     public function render()
     {
-        return view('livewire.auth.register')->layout('components.layouts.guest');
+        return view('livewire.auth.register')->layout('layouts.guest');
     }
 }

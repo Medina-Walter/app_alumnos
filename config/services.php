@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'whatsapp' => [
+        'country_code' => env('WHATSAPP_COUNTRY_CODE', '54'), // valor por defecto
+    ],
+
 ];
