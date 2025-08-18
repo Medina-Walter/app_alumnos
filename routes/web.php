@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DesarrolladoresController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\ProfesoresCrud;
 use App\Livewire\Auth\Login;
@@ -15,7 +16,6 @@ Route::post('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
-
 Route::get('/login', Login::class)->name('login');
 Route::get('/', Login::class)->name('login');
 Route::get('/register', Register::class)->name('register');
@@ -23,9 +23,9 @@ Route::get('/register', Register::class)->name('register');
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     Route::get('/home', [DashboardController::class, 'index'])->name('home');
-    
+
+    //  Rutas de perfil
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [ProfileController::class, 'update'])->name('profile.update');
 });
-
-
-
-
