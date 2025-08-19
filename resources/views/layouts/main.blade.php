@@ -86,7 +86,6 @@
       ordering: false,
         layout: {
           topStart: {
-            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
             }
           },
           language: {

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="mb-4">👤 Perfil de {{ $user->name }}</h1>
+    <h1 class="mb-4">👤 Perfil de {{ $user->nombre }} {{ $user->apellido }}</h1>
 
     <div class="card shadow-sm">
         <div class="card-header bg-primary text-white">
@@ -17,8 +17,9 @@
                 @endif
             </div>
 
+            <p><i class="bi bi-envelope"></i> <strong>Nombre:</strong> {{ $user->nombre }}</p>
+            <p><i class="bi bi-envelope"></i> <strong>Apellido:</strong> {{ $user->apellido }}</p>
             <p><i class="bi bi-envelope"></i> <strong>Email:</strong> {{ $user->email }}</p>
-            <p><i class="bi bi-person-badge"></i> <strong>Rol:</strong> {{ ucfirst($user->rol) }}</p>
             <p><i class="bi bi-telephone"></i> <strong>Teléfono:</strong> 
                 @if ($user->phone)
                     <a href="https://wa.me/549{{ $user->phone }}" target="_blank" class="btn btn-outline-success btn-sm">

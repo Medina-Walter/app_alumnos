@@ -17,7 +17,11 @@ class Login extends Component
         $credentials = $this->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard.index');
+            if (Auth::user()->rol == 'admin') {
+                return redirect()->route('alumnos.index');
+            }else {
+                return redirect()->route('dashboard.index');
+            }
         }
 
         $this->addError('email', 'Credenciales inválidas.');

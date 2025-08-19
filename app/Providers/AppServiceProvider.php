@@ -2,22 +2,24 @@
 
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class RouteServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->configureRateLimiting();
+        Gate::define('ver-admin', function(User $user){
+            return $user->rol === 'admin';
+        });
 
-        $this->routes(function () {
-            Route::middleware('api')
-                ->prefix('api')
-                ->group(base_path('routes/api.php'));
+        Gate::define('ver-alumno', function(User $user){
+            return $user->rol === 'alumno';
+        });
 
-            Route::middleware('web')
-                ->group(base_path('routes/web.php'));
+        Gate::define('ver-todos', function(User $user){
+            return in_array($user->rol, ['admin', 'alumno']);
         });
     }
 }

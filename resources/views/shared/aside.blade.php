@@ -26,9 +26,6 @@
           </li>
         </ul>
       </li> -->
-
-      
-
       
       <!--<li class="nav-heading">Pages</li>
 
@@ -56,13 +53,5 @@
           </li>
         </ul>
       </li> -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="">
-          <i class="fa-solid fa-users"></i>
-          <span>Alumnos</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
   </ul>
 </aside>

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller; // ✅ ESTA LÍNEA ES NECESARIA
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -35,6 +34,9 @@ class ProfileController extends Controller
         $user = Auth::user();
 
         $validated = $request->validate([
+            'nombre' => ['nullable', 'string', 'max:255'],
+            'apellido' => ['nullable', 'string', 'max:255'],
+            'dni' => ['nullable', 'string', 'max:255'],
             'phone' => ['nullable', 'string', 'max:20'],
             'professional_url' => ['nullable', 'url'],
             'photo' => ['nullable', 'image', 'max:2048'],
@@ -45,6 +47,9 @@ class ProfileController extends Controller
             $user->photo_path = $path;
         }
 
+        $user->nombre = $validated['nombre'] ?? $user->nombre;
+        $user->apellido = $validated['apellido'] ?? $user->apellido;
+        $user->dni = $validated['dni'] ?? $user->dni;
         $user->phone = $validated['phone'] ?? $user->phone;
         $user->professional_url = $validated['professional_url'] ?? $user->professional_url;
         $user->save();

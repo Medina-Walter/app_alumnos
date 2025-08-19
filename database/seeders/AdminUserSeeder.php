@@ -16,7 +16,8 @@ class AdminUserSeeder extends Seeder
         User::updateOrCreate(
             ['email' => 'admin@example.com'], // campo único
             [
-                'name' => 'Walter',
+                'nombre' => 'Admin',
+                'apellido' => 'User',
                 'password' => Hash::make('admin123'), // cambia por uno seguro
                 'rol' => 'admin', // si tienes campo de rol
             ]
